@@ -18,11 +18,9 @@ Vagrant.configure("2") do |config|
 
   config.vm.synced_folder ".", "/var/www/html", :mount_options => ["dmode=777", "fmode=666"]
 
-  # install apache
-  config.vm.provision "shell", path: "bootstrap.sh"
+  # install lamp
+  config.vm.provision "shell", path: "scripts/install-lamp.sh"
 
-  # install mysql
-
-  # install php
+  # todo
 
 end

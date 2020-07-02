@@ -3,11 +3,11 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/bionic64"
 
   # enable rsync
-  puts ENV["VAGRANT_DETECTED_OS"];
-  ENV["VAGRANT_DETECTED_OS"] = ENV["VAGRANT_DETECTED_OS"].to_s + " cygwin"
+  # puts ENV["VAGRANT_DETECTED_OS"];
+  # ENV["VAGRANT_DETECTED_OS"] = ENV["VAGRANT_DETECTED_OS"].to_s + " cygwin"
 
   config.vm.provider "virtualbox" do |vb, provider, override|
-    vb.memory = 2048
+    vb.memory = 4000 # 4gb, feel free to change this vb.cpus for performance
     vb.cpus = 4
   end
 
@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder ".", "/var/www/html", :mount_options => ["dmode=777", "fmode=666"]
 
   # install lemp
-  config.vm.provision "shell", path: "scripts/install-lamp.sh"
+  config.vm.provision "shell", path: "scripts/install-lemp.sh"
 
   # install node, nvm, npm, yarn
   config.vm.provision "shell", path: "scripts/install-node.sh"

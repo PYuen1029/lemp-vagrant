@@ -18,9 +18,10 @@ Vagrant.configure("2") do |config|
 
   config.vm.synced_folder ".", "/var/www/html", :mount_options => ["dmode=777", "fmode=666"]
 
-  # install lamp
+  # install lemp
   config.vm.provision "shell", path: "scripts/install-lamp.sh"
 
-  # todo
+  # install node, nvm, npm, yarn
+  config.vm.provision "shell", path: "scripts/install-node.sh"
 
 end

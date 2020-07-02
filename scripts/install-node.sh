@@ -2,16 +2,16 @@
 
 echo ">>> Installing node"
 apt-get update
-apt install nodejs
+apt install -y nodejs
 
 echo ">>> Installing npm"
-sudo apt install build-essential checkinstall libssl-dev
-apt install npm
+apt install -y build-essential checkinstall libssl-dev
+apt install -y npm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.1/install.sh | bash
 nvm install 12.18.2
 
 echo ">>> Installing yarn"
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt update
-sudo apt install yarn
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+apt-get update -y
+apt install -y yarn

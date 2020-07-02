@@ -24,4 +24,7 @@ Vagrant.configure("2") do |config|
   # install node, nvm, npm, yarn
   config.vm.provision "shell", path: "scripts/install-node.sh"
 
+  # set up php-enabled nginx file
+  config.vm.provision "shell", path: "scripts/setup-nginx-environment.sh"
+
 end
